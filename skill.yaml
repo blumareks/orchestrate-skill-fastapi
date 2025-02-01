@@ -1,0 +1,116 @@
+openapi: 3.0.1
+info:
+  title: Insurance Claim Skill API
+  description: This API provides insurance claim details for a given request.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8000
+    description: Local development server
+
+paths:
+  /query:
+    post:
+      summary: Retrieve insurance claim details
+      description: Returns static insurance claim details if the correct request payload is provided.
+      operationId: getInsuranceClaimDetails
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                RAG:
+                  type: string
+                  example: "insurance claim"
+      responses:
+        "200":
+          description: Successful response with insurance claim details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Name:
+                    type: string
+                    example: "Jane Doe"
+                  PolicyNumber:
+                    type: string
+                    example: "ABC123456789"
+                  Vehicle Make and Model:
+                    type: string
+                    example: "Toyota Camry"
+                  Vehicle Year:
+                    type: string
+                    example: "2020"
+                  License Plate Number:
+                    type: string
+                    example: "7XYZ123"
+                  Date of Incident:
+                    type: string
+                    example: "January 20, 2025"
+                  Time of Incident:
+                    type: string
+                    example: "3:45 PM"
+                  Location of Incident:
+                    type: string
+                    example: "Interstate 680, near Exit 40, California"
+                  Weather Conditions:
+                    type: string
+                    example: "Clear and sunny"
+                  Cause of Damage:
+                    type: string
+                    example: "Flying pebble hit the windshield"
+                  Extent of Damage:
+                    type: string
+                    example: "4-inch crack on the driver's side of windshield"
+                  Driver's License Number:
+                    type: string
+                    example: "CA987654321"
+                  State of Driver's License:
+                    type: string
+                    example: "California"
+                  Insurance Company:
+                    type: string
+                    example: "ABC Insurance Company"
+                  Contact Information:
+                    type: string
+                    example: "555-123-4567"
+                  Email Address:
+                    type: string
+                    example: "jane.doe@example.com"
+                  Incident Description:
+                    type: string
+                    example: "While driving on Interstate 680 near Exit 40, a pebble was kicked up by a passing vehicle, causing a crack in the windshield."
+                  Police Report Filed:
+                    type: string
+                    example: "No"
+                  Photos of Damage:
+                    type: string
+                    example: "Yes"
+                  Repair or Replacement Needed:
+                    type: string
+                    example: "Replacement"
+                  Preferred Repair Shop:
+                    type: string
+                    example: "Speedy Auto Glass, 123 Glass Street, Pleasant Hill, CA"
+                  Deductible Amount:
+                    type: string
+                    example: "$100"
+                  Witnesses:
+                    type: string
+                    example: "None"
+                  Other Parties Involved:
+                    type: string
+                    example: "None"
+        "400":
+          description: Invalid request payload
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+                    example: "Invalid request"
