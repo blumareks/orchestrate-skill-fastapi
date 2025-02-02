@@ -1,0 +1,76 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Insurance Claim Skill API",
+      "version": "1.0.0",
+      "description": "A microservice for Watsonx Orchestrate that returns static insurance claim details."
+    },
+    "paths": {
+      "/query": {
+        "post": {
+          "summary": "Retrieve insurance claim details",
+          "operationId": "getInsuranceClaimDetails",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "RAG": {
+                      "type": "string",
+                      "example": "insurance claim",
+                      "description": "Request type identifier for the claim."
+                    }
+                  },
+                  "required": ["RAG"]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Successful response with insurance claim details",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "Name": { "type": "string", "example": "Jane Doe" },
+                      "PolicyNumber": { "type": "string", "example": "ABC123456789" },
+                      "VehicleMakeAndModel": { "type": "string", "example": "Toyota Camry" },
+                      "VehicleYear": { "type": "string", "example": "2020" },
+                      "LicensePlateNumber": { "type": "string", "example": "7XYZ123" },
+                      "DateOfIncident": { "type": "string", "example": "January 20, 2025" },
+                      "TimeOfIncident": { "type": "string", "example": "3:45 PM" },
+                      "LocationOfIncident": { "type": "string", "example": "Interstate 680, near Exit 40, California" },
+                      "WeatherConditions": { "type": "string", "example": "Clear and sunny" },
+                      "CauseOfDamage": { "type": "string", "example": "Flying pebble hit the windshield" },
+                      "ExtentOfDamage": { "type": "string", "example": "4-inch crack on the driver's side of windshield" },
+                      "DriverLicenseNumber": { "type": "string", "example": "CA987654321" },
+                      "StateOfDriverLicense": { "type": "string", "example": "California" },
+                      "InsuranceCompany": { "type": "string", "example": "ABC Insurance Company" },
+                      "ContactInformation": { "type": "string", "example": "555-123-4567" },
+                      "EmailAddress": { "type": "string", "example": "jane.doe@example.com" },
+                      "IncidentDescription": { "type": "string", "example": "While driving on Interstate 680 near Exit 40, a pebble was kicked up by a passing vehicle, causing a crack in the windshield." },
+                      "PoliceReportFiled": { "type": "string", "example": "No" },
+                      "PhotosOfDamage": { "type": "string", "example": "Yes" },
+                      "RepairOrReplacementNeeded": { "type": "string", "example": "Replacement" },
+                      "PreferredRepairShop": { "type": "string", "example": "Speedy Auto Glass, 123 Glass Street, Pleasant Hill, CA" },
+                      "DeductibleAmount": { "type": "string", "example": "$100" },
+                      "Witnesses": { "type": "string", "example": "None" },
+                      "OtherPartiesInvolved": { "type": "string", "example": "None" }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid request format"
+            }
+          }
+        }
+      }
+    }
+  }
+  
