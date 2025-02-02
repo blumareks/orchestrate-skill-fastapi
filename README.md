@@ -25,7 +25,7 @@ pip freeze | grep -E 'fastapi|uvicorn|pydantic' > requirements.txt
 
 Run the application using: 
 ```sh
-uvicorn insurance_skill:app --host 0.0.0.0 --port 8000
+uvicorn app:app --host 0.0.0.0 --port 8000
 
 ```
 
